@@ -1,1 +1,0 @@
-<div id="desktop"><?php echo $this->getContent(); ?></div>
