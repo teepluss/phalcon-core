@@ -7,6 +7,8 @@ use Phalcon\Mvc\Dispatcher;
 
 try {
 
+    // Logic.
+
     /**
      * Read the configuration
      */
