@@ -30,7 +30,7 @@ try {
     $app->registerModules([
         'frontend' => [
             'className' => 'App\Modules\Frontend\Module',
-            'path'      =>  __DIR__ . '/../app/modules/frontend/Module.php'
+            'path'      =>  __DIR__ . '/../app/Modules/Frontend/Module.php'
         ]
     ]);
 
