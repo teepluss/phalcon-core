@@ -16,11 +16,11 @@ $loader->registerNamespaces([
 ]);
 
 $kintFile = $config->application->vendorDir.'raveren/kint/Kint.class.php';
-if (file_exists($kintFile))
-{
-var_dump($kintFile);
+// if (file_exists($kintFile))
+// {
+// var_dump($kintFile);
     require_once $kintFile;
-}
+// }
 
 $loader->register();
 
