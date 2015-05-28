@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Router;
 use Phalcon\Http\Response;
 use Phalcon\Mvc\Router\Group as RouterGroup;
-//use App\Config\Routes;
+use App\Config\Routes;
 
 $router = new Router();
 $router->setDefaultModule('frontend');
