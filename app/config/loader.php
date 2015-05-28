@@ -11,7 +11,7 @@ $loader->registerDirs([
 ]);
 
 $loader->registerNamespaces([
-    'App\Config\Routes' => $config->application->appDir.'config/routes/',
+    'App\Config\Routes\Frontend' => $config->application->appDir.'config/Routes/Frontend/',
     'Symfony\Component\VarDumper' => $config->application->vendorDir.'symfony/var-dumper/',
 ]);
 
