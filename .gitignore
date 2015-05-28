@@ -4,4 +4,4 @@
 /nbproject/
 /.idea/
 .editorconfig
-vendor/.git
+vendor/**/.git/
