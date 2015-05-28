@@ -4,5 +4,8 @@
     },
     "require-dev": {
         "raveren/kint": "dev-master"
+    },
+    "config": {
+        "preferred-install": "dist"
     }
 }
