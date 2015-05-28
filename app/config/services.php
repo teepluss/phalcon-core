@@ -24,30 +24,7 @@ $di->set('dispatcher', function() {
     /**
      * Check if the user is allowed to access certain action using the SecurityPlugin
      */
-    $eventsManager->attach('dispatch:beforeDispatch', function($events, $dispatcher) {
-
-
-        // $controller = $dispatcher->getControllerName();
-        // $action = $dispatcher->getActionName();
-
-        // $className  = ucfirst($controller).'Controller';
-
-        // $permissions = $className::$permissions;
-
-        // if (isset($permissions[$action]))
-        // {
-        //     list($controller, $action) = explode('.', $permissions[$action]);
-
-        //     // /dump($currentAction); exit;
-
-        //     if ( ! $acl->isAllowed('Guest', $controller, $action)) {
-        //         // redirect to login.
-        //     }
-        // }
-
-        // pass, deny
-    });
-
+    $eventsManager->attach('dispatch:beforeDispatch', new App\Plugins\Security);
 
     /**
      * Handle exceptions and not-found exceptions using NotFoundPlugin
