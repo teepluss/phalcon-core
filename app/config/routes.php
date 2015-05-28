@@ -20,6 +20,18 @@ $frontend->add('/', array(
     'action'     => 'index',
 ));
 
+$frontend->add('login', array(
+	'namespace'	 => 'App\Modules\Frontend\Controllers\Auth',
+    'controller' => 'auth',
+    'action'     => 'login',
+));
+
+$frontend->add('logout', array(
+	'namespace'	 => 'App\Modules\Frontend\Controllers\Auth',
+    'controller' => 'auth',
+    'action'     => 'logout',
+));
+
 // Register routes
 $router->mount($frontend);
 
