@@ -11,7 +11,7 @@ $loader->registerDirs([
 ]);
 
 $loader->registerNamespaces([
-    'App\Plugins' => $config->application->appDir.'Plugins/',
+    'App' => $config->application->appDir,
     'Symfony\Component\VarDumper' => $config->application->vendorDir.'symfony/var-dumper/',
 ]);
 
