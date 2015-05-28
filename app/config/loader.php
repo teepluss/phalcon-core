@@ -4,7 +4,7 @@ $loader = new \Phalcon\Loader();
 
 
 $loader->registerNamespaces([
-    'App\Config\Routes' => $config->application->appDir.'config/routes/',
+    'App' => $config->application->appDir,
     'Symfony\Component\VarDumper' => $config->application->vendorDir.'symfony/var-dumper/',
 ]);
 
