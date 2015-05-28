@@ -17,4 +17,4 @@ $loader->registerNamespaces([
 
 $loader->register();
 
-//require $config->application->helpersDir.'utilities.php';
+require $config->application->helpersDir.'utilities.php';

@@ -14,6 +14,7 @@ return new \Phalcon\Config(array(
         'vendorDir'  => __DIR__ . '/../../vendor/',
         'appDir'     => __DIR__ . '/../../app/',
         'viewsDir'   => __DIR__ . '/../../views/',
+        'helpersDir' => __DIR__ . '/../../helpers/',
         'baseUri'    => '/',
     ),
 ));
