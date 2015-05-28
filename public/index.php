@@ -10,17 +10,17 @@ try {
     /**
      * Read the configuration
      */
-    $config = include __DIR__ . "/../config/config.php";
+    $config = include __DIR__ . "/../app/config/config.php";
 
     /**
      * Read auto-loader
      */
-    include __DIR__ . "/../config/loader.php";
+    include __DIR__ . "/../app/config/loader.php";
 
     /**
      * Read services
      */
-    include __DIR__ . "/../config/services.php";
+    include __DIR__ . "/../app/config/services.php";
 
     /**
      * Handle the request
@@ -30,7 +30,7 @@ try {
     $app->registerModules([
         'frontend' => [
             'className' => 'App\Modules\Frontend\Module',
-            'path'      =>  __DIR__ . '/../app/Modules/Frontend/Module.php'
+            'path'      =>  __DIR__ . '/../app/containers/Modules/Frontend/Module.php'
         ]
     ]);
 
