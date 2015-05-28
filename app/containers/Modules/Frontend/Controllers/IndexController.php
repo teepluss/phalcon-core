@@ -4,7 +4,7 @@ class IndexController extends BaseController {
 
     public function indexAction()
     {
-        ddd($this->getDI());
+        // ddd($this->getDI());
         $this->view->setVar("config", $this->config->toArray());
         //$this->events->fire('stock:increase', null, []);
     }

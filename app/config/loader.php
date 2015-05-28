@@ -15,12 +15,11 @@ $loader->registerNamespaces([
     'Symfony\Component\VarDumper' => $config->application->vendorDir.'symfony/var-dumper/',
 ]);
 
-$kintFile = $config->application->vendorDir.'raveren/kint/kint.class.php';
-// if (file_exists($kintFile))
-// {
-// var_dump($kintFile);
+$kintFile = $config->application->vendorDir.'raveren/kint/Kint.class.php';
+if (file_exists($kintFile))
+{
     require_once $kintFile;
-// }
+}
 
 $loader->register();
 
