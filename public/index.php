@@ -7,12 +7,64 @@ use Phalcon\Mvc\Dispatcher;
 
 try {
 
-    // Logic.
+    /**
+     * Get current environment
+     * @return String|Null Environment name or null
+     */
+    function getEnvironment()
+    {
+        static $currentEnv = null;
+
+        if (! is_null($currentEnv))
+        {
+            return $currentEnv ?: null;
+        }
+
+        $currentEnv = false;
+
+        $environments = array(
+            'develop' => array('cpone-dev.igetapp.com'),
+            'ethaizone' => array('ubuntu-dev1'),
+        );
+
+        $domain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
+
+        $hostname = gethostname();
+
+        foreach ($environments as $environment => $hosts)
+        {
+            // To determine the current environment, we'll simply iterate through the possible
+            // environments and look for the host that matches the host for this request we
+            // are currently processing here, then return back these environment's names.
+            foreach ((array) $hosts as $host)
+            {
+                $hostPattern = preg_quote($host, '#');
+                $hostPattern = str_replace('\*', '.*', $hostPattern).'\z';
+
+                if (
+                    (bool) preg_match('#^'.$hostPattern.'#', $domain)
+                    || ($host == $domain)
+                    || ($host == $hostname)
+                ) {
+                    $currentEnv = $environment;
+                    return $environment;
+                }
+            }
+        }
+
+        return null;
+    }
+
 
     /**
      * Read the configuration
      */
     $config = include __DIR__ . "/../app/config/config.php";
+    if (getEnvironment())
+    {
+        $envConfig = include __DIR__ . "/../app/config/config.".getEnvironment().".php";
+        $config->merge($envConfig);
+    }
 
     /**
      * Read auto-loader
