@@ -10,7 +10,7 @@ $router->setDefaultModule('frontend');
 
 
 // Register routes
-// $router->mount(new Routes\Frontend\Home);
-// $router->mount(new Routes\Frontend\Blog);
+$router->mount(new Routes\Frontend\Home);
+$router->mount(new Routes\Frontend\Blog);
 
 return $router;
