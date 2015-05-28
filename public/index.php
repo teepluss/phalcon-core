@@ -1,6 +1,6 @@
 <?php
 
-die('weeessss');
+echo 'EEE';
 
 error_reporting(E_ALL);
 
