@@ -10,11 +10,11 @@ return new \Phalcon\Config(array(
         'charset'     => 'utf8',
     ),
     'application' => array(
-        'storageDir' => __DIR__ . '/../../storage/',
-        'vendorDir'  => __DIR__ . '/../../vendor/',
-        'appDir'     => __DIR__ . '/../../app/',
-        'viewsDir'   => __DIR__ . '/../../views/',
-        'helpersDir' => __DIR__ . '/../../helpers/',
+        'storageDir' => __DIR__ . '/../storage/',
+        'vendorDir'  => __DIR__ . '/../vendor/',
+        'appDir'     => __DIR__ . '/../',
+        'viewsDir'   => __DIR__ . '/../views/',
+        'helpersDir' => __DIR__ . '/../helpers/',
         'baseUri'    => '/',
     ),
 ));
