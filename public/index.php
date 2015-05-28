@@ -1,7 +1,5 @@
 <?php
 
-echo 'EEE';
-
 error_reporting(E_ALL);
 
 use Phalcon\Mvc\View;
