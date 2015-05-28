@@ -24,7 +24,7 @@ $di->set('dispatcher', function() {
     /**
      * Check if the user is allowed to access certain action using the SecurityPlugin
      */
-    //$eventsManager->attach('dispatch:beforeDispatch', new \App\Plugins\Security);
+    $eventsManager->attach('dispatch:beforeDispatch', new App\Plugins\Security());
 
     /**
      * Handle exceptions and not-found exceptions using NotFoundPlugin
@@ -66,7 +66,7 @@ $di->set('view', function () use ($config) {
             $volt = new VoltEngine($view, $di);
 
             $volt->setOptions(array(
-                'compiledPath' => $config->application->cacheDir,
+                'compiledPath' => $config->application->storageDir.'cache/',
                 'compiledSeparator' => '_'
             ));
 

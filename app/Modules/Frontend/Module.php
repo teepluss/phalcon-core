@@ -17,7 +17,7 @@ class Module implements ModuleDefinitionInterface {
 
         $loader->registerNamespaces([
             'App\Modules\Frontend\Controllers' => __DIR__ . '/Controllers/',
-            //'App\Modules\Frontend\Models'      => __DIR__ . '/models/',
+            'App\Modules\Frontend\Models'      => __DIR__ . '/Models/',
         ]);
 
         $loader->register();
