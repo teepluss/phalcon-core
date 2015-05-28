@@ -4,7 +4,8 @@ $loader = new \Phalcon\Loader();
 
 
 $loader->registerNamespaces([
-    'Symfony\Component\VarDumper' => $config->application->vendorDir.'symfony/var-dumper/'
+    'App' => $config->application->appDir,
+    'Symfony\Component\VarDumper' => $config->application->vendorDir.'symfony/var-dumper/',
 ]);
 
 /**

@@ -3,35 +3,14 @@
 use Phalcon\Mvc\Router;
 use Phalcon\Http\Response;
 use Phalcon\Mvc\Router\Group as RouterGroup;
+use App\Config\Routes;
 
 $router = new Router();
+$router->setDefaultModule('frontend');
 
-/*
-$router->setDefaultModule("frontend");
 
-$frontend = new RouterGroup([
-    'module' => 'frontend'
-]);
-
-$frontend->setPrefix('/front');
-
-$frontend->add('/', array(
-    'controller' => 'index',
-    'action'     => 'index',
-));
-
-$frontend->beforeMatch(function($uri, $route) {
-    if ( ! isset($_GET['password'])) {
-        die('xxx');
-    }
-
-    return true;
-});
-
-$router->mount($frontend);
-
-return $router;
-
-*/
+// Register routes
+$router->mount(new Routes\Frontend\Home);
+$router->mount(new Routes\Frontend\Blog);
 
 return $router;

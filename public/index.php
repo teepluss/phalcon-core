@@ -2,6 +2,9 @@
 
 error_reporting(E_ALL);
 
+use Phalcon\Mvc\View;
+use Phalcon\Mvc\Dispatcher;
+
 try {
 
     /**
@@ -22,9 +25,16 @@ try {
     /**
      * Handle the request
      */
-    $application = new \Phalcon\Mvc\Application($di);
+    $app = new \Phalcon\Mvc\Application($di);
 
-    echo $application->handle()->getContent();
+    $app->registerModules([
+        'frontend' => [
+            'className' => 'App\Modules\Frontend\Module',
+            'path'      =>  __DIR__ . '/../app/modules/frontend/Module.php'
+        ]
+    ]);
+
+    echo $app->handle()->getContent();
 
 } catch (\Exception $e) {
     echo $e->getMessage();

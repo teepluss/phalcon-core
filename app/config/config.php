@@ -19,6 +19,7 @@ return new \Phalcon\Config(array(
         'cacheDir'       => __DIR__ . '/../../app/cache/',
         'vendorDir'      => __DIR__ . '/../../vendor/',
         'helpersDir'     => __DIR__ . '/../../app/helpers/',
+        'appDir'         => __DIR__ . '/../../app/',
         'baseUri'        => '/',
     ),
 ));

@@ -45,7 +45,7 @@ $di->set('dispatcher', function() {
         //     }
         // }
 
-        // pass, den
+        // pass, deny
     });
 
 
