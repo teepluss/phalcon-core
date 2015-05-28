@@ -1,5 +1,8 @@
 {
     "require": {
         "symfony/var-dumper": "dev-master"
+    },
+    "require-dev": {
+        "raveren/kint": "dev-master"
     }
 }
