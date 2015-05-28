@@ -25,6 +25,7 @@ try {
         $environments = array(
             'develop' => array('cpone-dev.igetapp.com'),
             'ethaizone' => array('ubuntu-dev1'),
+            'krucamper' => array('vagrant-krucamper'),
         );
 
         $domain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
