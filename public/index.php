@@ -1,5 +1,7 @@
 <?php
 
+die('weee');
+
 error_reporting(E_ALL);
 
 use Phalcon\Mvc\View;
