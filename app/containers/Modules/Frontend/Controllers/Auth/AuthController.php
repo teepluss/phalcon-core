@@ -23,7 +23,7 @@ class AuthController extends BaseController
 			$password = $this->request->getPost('password');
 			if ( $username == 'a' && $password == 'a') {
 				$this->session->set('auth',true);
-				$this->response->redirect('/',true);
+				$this->response->redirect('/user',true);
 			}
 		}
 	}
