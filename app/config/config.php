@@ -1,5 +1,7 @@
 <?php
 
+$baseUri = realpath(__DIR__ . '/../../');
+
 return new \Phalcon\Config(array(
     'database' => array(
         'adapter'     => 'Mysql',
@@ -10,11 +12,11 @@ return new \Phalcon\Config(array(
         'charset'     => 'utf8',
     ),
     'application' => array(
-        'storageDir' => __DIR__ . '/../../storage/',
-        'vendorDir'  => __DIR__ . '/../../vendor/',
-        'appDir'     => __DIR__ . '/../',
-        'viewsDir'   => __DIR__ . '/../views/',
-        'helpersDir' => __DIR__ . '/../helpers/',
-        'baseUri'    => __DIR__ . '/../../',
+        'storageDir' => $baseUri . '/storage/',
+        'vendorDir'  => $baseUri . '/vendor/',
+        'appDir'     => $baseUri . '/app/',
+        'viewsDir'   => $baseUri . '/views/',
+        'helpersDir' => $baseUri . '/app/helpers/',
+        'baseUri'    => $baseUri . '/',
     ),
 ));
