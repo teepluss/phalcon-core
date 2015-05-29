@@ -30,6 +30,8 @@ $di->set('dispatcher', function() {
      * Handle exceptions and not-found exceptions using NotFoundPlugin
      */
     //$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
+    $eventsManager->attach("dispatch:beforeException", new App\Plugins\NotFound());
+
     $dispatcher = new Dispatcher;
     $dispatcher->setEventsManager($eventsManager);
 

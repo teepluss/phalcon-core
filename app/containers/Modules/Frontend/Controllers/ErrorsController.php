@@ -24,4 +24,9 @@ class ErrorsController extends BaseController
 		// set setitle
 		$this->tag->appendTitle('Error 500');
 	}
+
+	public function show503Action() {
+		// set setitle
+		$this->tag->appendTitle('Error 503');
+	}
 }
