@@ -10,15 +10,48 @@ $loader = new \Phalcon\Loader();
 //     $config->application->modelsDir
 // ]);
 
-$loader->registerNamespaces([
-    'App' => $config->application->appDir.'containers/',
-    'Symfony\Component\VarDumper' => $config->application->vendorDir.'symfony/var-dumper/',
-]);
+/**
+ * Composer autoload
+ * Ref: http://forum.phalconphp.com/discussion/2016/composer-and-autoloading
+ * PSR4 method by EThaiZone
+ */
 
-$kintFile = $config->application->vendorDir.'raveren/kint/Kint.class.php';
-if (file_exists($kintFile))
+// include composer autoload psr4
+$psr4 = require $config->application->vendorDir.'composer/autoload_psr4.php';
+$composerAutoloadPsr4 = [];
+foreach ($psr4 as $k => $values) {
+    $k = trim($k, '\\');
+    if (!isset($composerAutoloadPsr4[$k])) {
+        $composerAutoloadPsr4[$k] = current($values) . '/';
+    }
+}
+
+// include composer autoload namespace
+$namespaces = require $config->application->vendorDir.'composer/autoload_namespaces.php';
+$composerAutoloadNamespace = [];
+foreach ($namespaces as $k => $values) {
+    $k = trim($k, '\\');
+    if (!isset($composerAutoloadNamespace[$k])) {
+        $dir = '/' . str_replace('\\', '/', $k) . '/';
+        $composerAutoloadNamespace[$k] = implode($dir . ';', $values) . $dir;
+    }
+}
+
+// group all autoload and load as namespace in phalcom
+$loader->registerNamespaces([
+    'App' => $config->application->appDir.'containers/'
+] + $composerAutoloadPsr4 + $composerAutoloadNamespace);
+
+
+// include composer autoload classmap
+$classMap = require $config->application->vendorDir . 'composer/autoload_classmap.php';
+$loader->registerClasses($classMap);
+
+// include composer autoload files
+$files = require $config->application->vendorDir . 'composer/autoload_files.php';
+foreach($files as $file)
 {
-    require_once $kintFile;
+    require_once $file;
 }
 
 $loader->register();
