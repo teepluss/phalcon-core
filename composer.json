@@ -1,11 +1,5 @@
 {
     "require": {
-        "symfony/var-dumper": "dev-master"
-    },
-    "require-dev": {
-        "raveren/kint": "dev-master"
-    },
-    "config": {
-        "preferred-install": "dist"
+        "symfony/var-dumper": "^2.6"
     }
 }

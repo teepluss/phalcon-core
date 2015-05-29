@@ -1,33 +1,34 @@
 [
     {
         "name": "symfony/var-dumper",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "v2.6.8",
+        "version_normalized": "2.6.8.0",
+        "target-dir": "Symfony/Component/VarDumper",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "9b2a4d16f39ff8615c53ea160926c030e1fcc759"
+            "reference": "89eec96645fb44af4a454a26c74c72ba6311f5bc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/9b2a4d16f39ff8615c53ea160926c030e1fcc759",
-            "reference": "9b2a4d16f39ff8615c53ea160926c030e1fcc759",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/89eec96645fb44af4a454a26c74c72ba6311f5bc",
+            "reference": "89eec96645fb44af4a454a26c74c72ba6311f5bc",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.5.9"
+            "php": ">=5.3.3"
         },
         "require-dev": {
-            "symfony/phpunit-bridge": "~2.8|~3.0"
+            "symfony/phpunit-bridge": "~2.7"
         },
         "suggest": {
             "ext-symfony_debug": ""
         },
-        "time": "2015-05-12 15:48:43",
+        "time": "2015-05-01 14:14:24",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "3.0-dev"
+                "dev-master": "2.6-dev"
             }
         },
         "installation-source": "dist",
@@ -35,7 +36,7 @@
             "files": [
                 "Resources/functions/dump.php"
             ],
-            "psr-4": {
+            "psr-0": {
                 "Symfony\\Component\\VarDumper\\": ""
             }
         },
