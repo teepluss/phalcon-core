@@ -18,7 +18,7 @@ class NotFound
             return false;
         }
 
-        // handle other error
+        //
         if ($event->getType() == 'beforeException') {
             switch ($exception->getCode()) {
                 case \Phalcon\Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
