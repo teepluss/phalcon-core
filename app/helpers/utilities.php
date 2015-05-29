@@ -7,7 +7,7 @@ use Symfony\Component\VarDumper;
  */
 function dump($var)
 {
-    $cloner = new VarDumper;
+    $cloner = new VarDumper\Cloner\VarCloner();
     $cloner->setMaxItems(-1);
     $cloner->setMaxString(-1);
 
