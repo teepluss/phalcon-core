@@ -105,10 +105,16 @@ $di->set('session', function () {
     return $session;
 });
 
+/**
+ * set routes
+ */
 $di->set('router', function() {
     return require __DIR__.'/routes.php';
 });
 
+/**
+ * set flash session
+ */
 $di->set('flash', function(){
     $flash = new FlashSession(array(
         'error'   => 'alert alert-danger',
