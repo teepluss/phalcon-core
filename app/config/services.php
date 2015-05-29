@@ -9,6 +9,7 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Dispatcher;
+use Phalcon\Flash\Session as FlashSession;
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -106,4 +107,14 @@ $di->set('session', function () {
 
 $di->set('router', function() {
     return require __DIR__.'/routes.php';
+});
+
+$di->set('flash', function(){
+    $flash = new FlashSession(array(
+        'error'   => 'alert alert-danger',
+        'success' => 'alert alert-success',
+        'notice'  => 'alert alert-info',
+        'warning' => 'alert alert-warning'
+    ));
+    return $flash;
 });

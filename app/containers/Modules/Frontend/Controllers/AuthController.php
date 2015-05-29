@@ -25,7 +25,12 @@ class AuthController extends BaseController
 				$this->session->set('auth',true);
 				$this->response->redirect('/user',true);
 			}
+			else 
+			{
+				$this->flash->error("Can't Login , Usename or Password Missing.");
+			}
 		}
+
 	}
 
 	public function logoutAction() {

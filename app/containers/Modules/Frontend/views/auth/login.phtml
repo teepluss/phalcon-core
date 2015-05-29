@@ -1,3 +1,5 @@
+<div><?php count($this->flash->output()) ?></div>
+
 <h1>
 user: a <br />
 pass: a <br />
@@ -7,12 +9,12 @@ pass: a <br />
 <form method="POST" action="">
 <p>
 	<label for="username">UserName</label>
-	<input type="text" name="username">
+	<input type="text" name="username" required>
 </p>
 
 <p>
 	<label for="password">Password</label>
-	<input type="password" name="password">
+	<input type="password" name="password" required>
 </p>
 
 <p>
