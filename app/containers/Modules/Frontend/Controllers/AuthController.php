@@ -1,7 +1,7 @@
-<?php namespace App\Modules\Frontend\Controllers\Auth;
+<?php namespace App\Modules\Frontend\Controllers;
 
 use Phalcon\Mvc\Controller;
-use App\Modules\Frontend\Controllers\BaseController;
+
 class AuthController extends BaseController 
 {
 
