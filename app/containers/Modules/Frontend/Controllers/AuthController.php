@@ -7,15 +7,15 @@ class AuthController extends BaseController
 
 	public function loginAction()
 	{
+		// set setitle
+		$this->tag->appendTitle('Login');
+
 		$isAuth = $this->session->get('auth');
 
 		if($isAuth)
 		{
 			$this->response->redirect('/',true);
 		}
-
-		// set setitle
-		$this->tag->appendTitle('Login');
 
 		if ($this->request->isPost() && $this->security->checkToken()) 
 		{
@@ -29,6 +29,9 @@ class AuthController extends BaseController
 	}
 
 	public function logoutAction() {
+		// set setitle
+		$this->tag->appendTitle('Logout');
+
 		$this->session->destroy();
 	}	
 
