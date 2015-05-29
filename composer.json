@@ -1,9 +1,11 @@
 {
     "require": {
-        "symfony/var-dumper": "dev-master"
+        "symfony/var-dumper": "dev-master",
+        "guzzlehttp/guzzle": ">=4.0",
+        "league/oauth2-client": "0.4.*",
+        "raveren/kint": "dev-master"
     },
     "require-dev": {
-        "raveren/kint": "dev-master"
     },
     "config": {
         "preferred-install": "dist"
