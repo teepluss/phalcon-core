@@ -11,6 +11,14 @@ use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Dispatcher;
 
 /**
+ * logger 
+ */
+use Phalcon\Logger,
+    Phalcon\Logger\Multiple as MultipleStream,
+    Phalcon\Logger\Adapter\File as FileAdapter,
+    Phalcon\Logger\Adapter\Stream as StreamAdapter;
+
+/**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
  */
 $di = new FactoryDefault();
@@ -106,4 +114,25 @@ $di->set('session', function () {
 
 $di->set('router', function() {
     return require __DIR__.'/routes.php';
+});
+
+$di->set('logger', function ()  use ($config) {
+
+    // $logger = new MultipleStream();
+
+    // $logger->push(new FileAdapter(.'/test.log'));
+    // $logger->push(new StreamAdapter('php://stdout'));
+
+    $logger = new MultipleStream($config->application->storageDir.'/logs/');
+
+ddd($logger);
+
+    $logger->debug('Hello world');      // this is logged into debug.log
+    $logger->info('Hello world');       // this is logged into info.log
+    $logger->warning('Hello world');    // this is logged into warning.log
+    $logger->error('Hello world');      // this is logged into error.log
+    $logger->log('Hello world', Logger::CRITICAL);  // this is logged into critical.log
+
+
+    return $logger;
 });
