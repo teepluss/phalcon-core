@@ -1,6 +1,4 @@
 .DS_Store
-.svn
-/nbproject/private/
-/nbproject/
-/.idea/
 .editorconfig
+.phalcon
+/vendor
