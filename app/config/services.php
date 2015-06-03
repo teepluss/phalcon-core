@@ -10,6 +10,7 @@ use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Flash\Session as FlashSession;
+use App\Libraries\Extend\Db\Profiler as DbProfiler;
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -25,13 +26,13 @@ $di->set('dispatcher', function() {
     /**
      * Check if the user is allowed to access certain action using the SecurityPlugin
      */
-    $eventsManager->attach('dispatch:beforeDispatch', new App\Plugins\Security());
+    //$eventsManager->attach('dispatch:beforeDispatch', new App\Plugins\Security());
 
     /**
      * Handle exceptions and not-found exceptions using NotFoundPlugin
      */
     //$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
-    $eventsManager->attach("dispatch:beforeException", new App\Plugins\NotFound());
+    //$eventsManager->attach('dispatch:beforeException', new App\Plugins\NotFound());
 
     $dispatcher = new Dispatcher;
     $dispatcher->setEventsManager($eventsManager);
@@ -82,10 +83,22 @@ $di->set('view', function () use ($config) {
 }, true);
 
 /**
+ * Database profiler.
+ */
+$dbProfiler = new DbProfiler;
+$di->set('dbProfiler', $dbProfiler);
+
+/**
  * Database connection is created based in the parameters defined in the configuration file
  */
-$di->set('db', function () use ($config) {
-    return new DbAdapter($config->toArray());
+$di->set('db', function () use ($config, $dbProfiler) {
+    $eventsManager = new EventsManager();
+    $eventsManager->attach('db', new App\Events\DbListener($dbProfiler));
+
+    $connection = new DbAdapter($config->database->toArray());
+    $connection->setEventsManager($eventsManager);
+
+    return $connection;
 });
 
 /**

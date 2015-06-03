@@ -8,7 +8,7 @@ class NotFound
 {
 	public function beforeException(Event $event, Dispatcher $dispatcher, $exception)
 	{
-
+        /*
 		// handle 404
         if ($exception instanceof DispatchException) {
             $dispatcher->forward(array(
@@ -30,5 +30,6 @@ class NotFound
                     return false;
             }
         }
+        */
 	}
 }

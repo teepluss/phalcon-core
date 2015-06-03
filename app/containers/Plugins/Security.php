@@ -13,8 +13,7 @@ use Phalcon\Acl\Adapter\Memory as AclList;
  *
  * This is the security plugin which controls that users only have access to the modules they're assigned to
  */
-class Security extends Plugin
-{
+class Security extends Plugin {
 
 	/**
 	 * Returns an existing or new access control list
@@ -23,9 +22,6 @@ class Security extends Plugin
 	 */
 	public function getAcl()
 	{
-
-		//throw new \Exception("something");
-
 		if (!isset($this->persistent->acl)) {
 
 			$acl = new AclList();

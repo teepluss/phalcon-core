@@ -15,7 +15,7 @@ try {
     {
         static $currentEnv = null;
 
-        if (! is_null($currentEnv))
+        if ( ! is_null($currentEnv))
         {
             return $currentEnv ?: null;
         }
@@ -23,12 +23,12 @@ try {
         $currentEnv = false;
 
         $environments = array(
-            'develop' => array('cpone-dev.igetapp.com'),
-            'ethaizone' => array('ubuntu-dev1'),
-            'krucamper' => array('vagrant-krucamper'),
+            'develop' => array('*.app')
         );
 
         $domain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
+
+        //sd($domain);
 
         $hostname = gethostname();
 
@@ -56,14 +56,14 @@ try {
         return null;
     }
 
-
     /**
-     * Read the configuration
+     * Merge configuration
      */
     $config = include __DIR__ . "/../app/config/config.php";
-    if (getEnvironment())
+    if ($env = getEnvironment())
     {
-        $envConfig = include __DIR__ . "/../app/config/config.".getEnvironment().".php";
+        $envConfig = include __DIR__ . "/../app/config/config.".$env.".php";
+
         $config->merge($envConfig);
     }
 
@@ -86,11 +86,16 @@ try {
         'frontend' => [
             'className' => 'App\Modules\Frontend\Module',
             'path'      =>  __DIR__ . '/../app/containers/Modules/Frontend/Module.php'
+        ],
+        'backend'  => [
+            'className' => 'App\Modules\Backend\Module',
+            'path'      => __DIR__ . '/../app/containers/Modules/Backend/Module.php'
         ]
     ]);
 
     echo $app->handle()->getContent();
 
 } catch (\Exception $e) {
+
     echo $e->getMessage();
 }

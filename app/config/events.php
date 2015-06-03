@@ -6,7 +6,7 @@ $eventsManager = new EventsManager;
 
 $eventsManager->attach('stock:increase', function($events) {
 
-    dump($events->getSource());
+    //dump($events->getSource());
 
     die('stock increase');
 });

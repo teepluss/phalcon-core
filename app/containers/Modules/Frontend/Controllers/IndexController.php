@@ -7,9 +7,7 @@ class IndexController extends BaseController {
 		// set setitle
 		$this->tag->appendTitle('Index');
 
-        // ddd($this->getDI());
         $this->view->setVar("config", $this->config->toArray());
-        //$this->events->fire('stock:increase', null, []);
     }
 
 }

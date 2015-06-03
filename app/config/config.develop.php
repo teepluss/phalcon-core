@@ -4,9 +4,9 @@ return new \Phalcon\Config(array(
     'database' => array(
         'adapter'     => 'Mysql',
         'host'        => 'localhost',
-        'username'    => 'igetapp',
-        'password'    => 'blabla',
-        'dbname'      => 'test',
+        'username'    => 'root',
+        'password'    => 'root',
+        'dbname'      => 'core',
         'charset'     => 'utf8',
     ),
 ));

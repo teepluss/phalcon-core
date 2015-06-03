@@ -2,8 +2,7 @@
 
 use Phalcon\Mvc\Controller;
 
-class ErrorsController extends BaseController
-{
+class ErrorsController extends BaseController {
 
 	public function show400Action() {
 		// set setitle
