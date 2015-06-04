@@ -12,11 +12,13 @@ return new \Phalcon\Config(array(
         'charset'     => 'utf8',
     ),
     'application' => array(
-        'storageDir' => $baseUri . '/storage/',
-        'vendorDir'  => $baseUri . '/vendor/',
-        'appDir'     => $baseUri . '/app/',
-        'viewsDir'   => $baseUri . '/views/',
-        'helpersDir' => $baseUri . '/app/helpers/',
-        'baseUri'    => $baseUri . '/',
+        'storageDir'  => $baseUri . '/storage/',
+        'vendorDir'   => $baseUri . '/vendor/',
+        'appDir'      => $baseUri . '/app/',
+        'viewsDir'    => $baseUri . '/views/',
+        'helpersDir'  => $baseUri . '/app/helpers/',
+        'messagesDir' => $baseUri . '/app/messages/',
+        'baseUri'     => $baseUri . '/',
+        'baseUrl'     => '/'
     ),
 ));

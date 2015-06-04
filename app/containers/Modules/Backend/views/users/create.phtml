@@ -1,0 +1,61 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Create User</h1>
+
+    <form method="post">
+        <fieldset>
+
+            <div class="control-group">
+                <?php echo $form->label('firstname', ['class' => 'control-label']) ?>
+                <div class="controls">
+                    <?php echo $form->render('firstname', ['class' => 'form-control']) ?>
+                    <p class="help-block">(required)</p>
+                    <?php echo $form->errorFirst('firstname') ?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <?php echo $form->label('lastname', ['class' => 'control-label']) ?>
+                <div class="controls">
+                    <?php echo $form->render('lastname', ['class' => 'form-control']) ?>
+                    <p class="help-block">(required)</p>
+                    <?php echo $form->errorFirst('lastname') ?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <?php echo $form->label('email', ['class' => 'control-label']) ?>
+                <div class="controls">
+                    <?php echo $form->render('email', ['class' => 'form-control']) ?>
+                    <p class="help-block">(required)</p>
+                    <?php echo $form->errorFirst('email') ?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <?php echo $form->label('password', ['class' => 'control-label']) ?>
+                <div class="controls">
+                    <?php echo $form->render('password', ['class' => 'form-control']) ?>
+                    <p class="help-block">(minimum 8 characters)</p>
+                    <?php echo $form->errorFirst('password') ?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="repeatPassword">Repeat Password</label>
+                <div class="controls">
+                    <?php echo $form->render('repeatPassword', ['class' => 'form-control']) ?>
+                    <p class="help-block">(match the password)</p>
+                    <?php echo $form->errorFirst('repeatPassword') ?>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <?php echo $form->render('submit', ['class' => 'btn btn-primary']) ?>
+                <p class="help-block">By signing up, you accept terms of use and privacy policy.</p>
+            </div>
+
+        </fieldset>
+    </form>
+
+
+</div>

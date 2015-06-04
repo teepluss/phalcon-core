@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
         <?php echo $this->tag->getTitle() ?>
+        <?php echo $this->assets->outputCss('header') ?>
     </head>
     <body>
-    	<div id="container">
-        <?php echo $this->getContent() ?>
+        <?php echo $this->partial('layouts/partials/navbar') ?>
+
+        <div class="container-fluid">
+            <?php echo $this->getContent() ?>
         </div>
+
+        <?php echo $this->assets->outputJs('footer') ?>
     </body>
 </html>

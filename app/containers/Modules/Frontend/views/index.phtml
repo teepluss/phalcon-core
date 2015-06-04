@@ -2,25 +2,9 @@
 <html>
     <head>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- Header -->
-    	<?php echo $this->partial("layouts/partials/header") ?>
-    <!-- Title -->
         <?php echo $this->tag->getTitle() ?>
     </head>
     <body>
-    <!-- NavBar -->
-    	<div id="navbar">
-    	<?php echo $this->partial("layouts/partials/navbar") ?>
-    	</div>
-
-    <!-- Content -->
-    	<div id="container">
         <?php echo $this->getContent() ?>
-        </div>
-
-    <!-- Footer -->
-        <div id="foot">
-        <?php echo  $this->partial("layouts/partials/footer") ?>
-        </div>
     </body>
 </html>

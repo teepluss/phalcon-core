@@ -8,6 +8,8 @@ class IndexController extends BaseController {
 		$this->tag->appendTitle('Index');
 
         $this->view->setVar("config", $this->config->toArray());
+
+        ddd($this->translate->_('hi', ['name' => 'Tee']));
     }
 
 }

@@ -11,7 +11,7 @@ $backend['home']->setPrefix('/admin');
 
 $backend['home']->add('', [
     'action' => 'index'
-]);
+])->setName('admin:dashboard');
 
 // Backend: users
 $backend['users'] = new Group([
@@ -22,11 +22,11 @@ $backend['users']->setPrefix('/admin/users');
 
 $backend['users']->add('', [
     'action' => 'index'
-]);
+])->setName('admin:users');
 
 $backend['users']->add('/create', [
     'action' => 'create'
-]);
+])->setName('admin:users:create');
 
 $backend['users']->add('/eager', [
     'action' => 'eager'

@@ -1,35 +1,46 @@
 <?php namespace App\Plugins;
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\Dispatcher;
-use Phalcon\Mvc\Dispatcher\Exception as DispatchException;
+use Phalcon\Mvc\User\Plugin;
+use Phalcon\Dispatcher;
+use Phalcon\Mvc\Dispatcher\Exception as DispatcherException;
+use Phalcon\Mvc\Dispatcher as MvcDispatcher;
+use Exception;
 
-class NotFound
-{
-	public function beforeException(Event $event, Dispatcher $dispatcher, $exception)
-	{
-        /*
-		// handle 404
-        if ($exception instanceof DispatchException) {
-            $dispatcher->forward(array(
-                'controller' => 'errors',
-                'action'     => 'show404'
-            ));
-            return false;
-        }
+/**
+ * NotFoundPlugin
+ *
+ * Handles not-found controller/actions
+ */
+class NotFound extends Plugin {
 
-        // handle other error
-        if ($event->getType() == 'beforeException') {
+    /**
+     * This action is executed before execute any action in the application
+     *
+     * @param Event $event
+     * @param Dispatcher $dispatcher
+     */
+    public function beforeException(Event $event, MvcDispatcher $dispatcher, Exception $exception)
+    {
+        if ($exception instanceof DispatcherException)
+        {
             switch ($exception->getCode()) {
-                case \Phalcon\Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
-                case \Phalcon\Dispatcher::EXCEPTION_ACTION_NOT_FOUND:
+                case Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
+                case Dispatcher::EXCEPTION_ACTION_NOT_FOUND:
                     $dispatcher->forward(array(
                         'controller' => 'errors',
                         'action'     => 'show404'
                     ));
+
                     return false;
             }
         }
-        */
-	}
+
+        // $dispatcher->forward(array(
+        //     'controller' => 'errors',
+        //     'action'     => 'show500'
+        // ));
+
+        throw $exception;
+    }
 }

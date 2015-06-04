@@ -9,6 +9,7 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Dispatcher;
+use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
 use App\Libraries\Extend\Db\Profiler as DbProfiler;
 
@@ -32,7 +33,7 @@ $di->set('dispatcher', function() {
      * Handle exceptions and not-found exceptions using NotFoundPlugin
      */
     //$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
-    //$eventsManager->attach('dispatch:beforeException', new App\Plugins\NotFound());
+    $eventsManager->attach('dispatch:beforeException', new App\Plugins\NotFound());
 
     $dispatcher = new Dispatcher;
     $dispatcher->setEventsManager($eventsManager);
@@ -50,7 +51,7 @@ $di->set('events', function() {
  */
 $di->set('url', function () use ($config) {
     $url = new UrlResolver();
-    $url->setBaseUri($config->application->baseUri);
+    $url->setBaseUri($config->application->baseUrl);
 
     return $url;
 }, true);
@@ -119,16 +120,29 @@ $di->set('session', function () {
 });
 
 /**
- * set routes
+ * Set routes
  */
 $di->set('router', function() {
     return require __DIR__.'/routes.php';
 });
 
 /**
- * set flash session
+ * Set flash direct
  */
-$di->set('flash', function(){
+$di->set('flash', function() {
+    $flash = new FlashDirect(array(
+        'error'   => 'alert alert-danger',
+        'success' => 'alert alert-success',
+        'notice'  => 'alert alert-info',
+        'warning' => 'alert alert-warning'
+    ));
+    return $flash;
+});
+
+/**
+ * Flash session
+ */
+$di->set('flashSession', function() {
     $flash = new FlashSession(array(
         'error'   => 'alert alert-danger',
         'success' => 'alert alert-success',
@@ -137,3 +151,30 @@ $di->set('flash', function(){
     ));
     return $flash;
 });
+
+/**
+ * Translation
+ */
+$di->set('translate', function() use ($di, $config) {
+
+    $language = $di->get('request')->getBestLanguage();
+
+    $messagesDir = $config->application->messagesDir;
+
+    // Check if we have a translation file for that lang
+    if (file_exists($messagesDir.$language.'/messages.php'))
+    {
+       $content = require $messagesDir.$language.'/messages.php';
+    }
+    else
+    {
+       // Fallback to some default
+       $content = require $messagesDir.'en/messages.php';
+    }
+
+    // Return a translation object
+    return new \Phalcon\Translate\Adapter\NativeArray(array(
+       "content" => $content
+    ));
+}, true);
+
