@@ -25,7 +25,12 @@ abstract class BaseController extends Controller {
             ->setLocal(false)
             ->addJs('assets/vendor/jquery/dist/jquery.min.js')
             ->addJs('assets/vendor/bootstrap/dist/js/bootstrap.min.js')
-            ->addJs('assets/vendor/holderjs/holder.js');
+            ->addJs('assets/vendor/holderjs/holder.js')
+            ->addJs('assets/vendor/i18next/i18next.commonjs.withJQuery.min.js');
+
+        // $this->assets
+        //     ->collection('footer')
+        //     ->addInlineJs('console.log("Demo")');
     }
 
 }

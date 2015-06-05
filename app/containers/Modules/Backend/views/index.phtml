@@ -9,6 +9,7 @@
         <meta name="author" content="">
         <?php echo $this->tag->getTitle() ?>
         <?php echo $this->assets->outputCss('header') ?>
+        <?php echo $this->assets->outputInlineCss('header') ?>
     </head>
     <body>
         <?php echo $this->partial('layouts/partials/navbar') ?>
@@ -18,5 +19,23 @@
         </div>
 
         <?php echo $this->assets->outputJs('footer') ?>
+        <?php echo $this->assets->outputInlineJs('footer') ?>
+
+        <script>
+
+            $(function() {
+                $.i18n.init({
+                    lng: 'en-US',
+                    lowerCaseLng: true,
+                    resGetPath: '/assets/locales/__lng__/__ns__.json'
+                }).done(function() {
+
+                    console.log($.t('key'));
+                });
+
+            });
+
+        </script>
+
     </body>
 </html>

@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\Dispatcher;
 
-try {
+// try {
 
     /**
      * Get current environment
@@ -95,7 +95,7 @@ try {
 
     echo $app->handle()->getContent();
 
-} catch (\Exception $e) {
+// } catch (\Exception $e) {
 
-    echo $e->getMessage();
-}
+//     echo $e->getMessage();
+// }

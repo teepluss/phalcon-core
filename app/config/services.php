@@ -32,7 +32,6 @@ $di->set('dispatcher', function() {
     /**
      * Handle exceptions and not-found exceptions using NotFoundPlugin
      */
-    //$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
     $eventsManager->attach('dispatch:beforeException', new App\Plugins\NotFound());
 
     $dispatcher = new Dispatcher;
@@ -178,3 +177,23 @@ $di->set('translate', function() use ($di, $config) {
     ));
 }, true);
 
+/**
+ * MongoDB
+ */
+$di->set('mongo', (new MongoClient())->selectDB('demo'), true);
+
+/**
+ * MongoDB collection
+ */
+$di->set('collectionManager', new Phalcon\Mvc\Collection\Manager(), true);
+
+/**
+ * Repositories
+ */
+$di->set('repositories', function() use ($di) {
+    $repositories = new App\Models\Repositories\Repositories;
+
+    $repositories->setDi($di);
+
+    return $repositories;
+}, true);

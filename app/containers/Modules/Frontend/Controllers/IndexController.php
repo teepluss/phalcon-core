@@ -1,15 +1,16 @@
 <?php namespace App\Modules\Frontend\Controllers;
 
+use App\Models\Entities\Users;
+
 class IndexController extends BaseController {
 
     public function indexAction()
     {
-		// set setitle
-		$this->tag->appendTitle('Index');
+        $this->tag->appendTitle('Index');
 
         $this->view->setVar("config", $this->config->toArray());
 
-        ddd($this->translate->_('hi', ['name' => 'Tee']));
+        //$this->repositories->get('User\User');
     }
 
 }

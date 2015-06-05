@@ -1,7 +1,6 @@
 <?php namespace App\Modules\Backend\Controllers;
 
 use Phalcon\Db\Column;
-use App\Models\Entities;
 use Sb\Framework\Mvc\Model\EagerLoading\Loader;
 use Sb\Framework\Mvc\Model\EagerLoading\QueryBuilder;
 use App\Forms\User\Create as UserCreateForm;
@@ -12,7 +11,7 @@ class UsersController extends BaseController {
     {
         parent::initialize();
 
-        $this->users = new Entities\Users;
+        $this->users = $this->repositories->uses('User');
     }
 
     public function indexAction()
@@ -70,16 +69,20 @@ class UsersController extends BaseController {
         {
             if ($form->isValid($this->request->getPost()))
             {
-                $this->users->assign($this->request->getPost());
+                $data = $this->request->getPost();
 
-                if ($this->users->save())
+                try
                 {
+                    $user = $this->users->create($data);
+
                     $this->flashSession->success('The new user has been created.');
 
                     return $this->response->redirect(['for' => 'admin:users']);
                 }
-
-                $form->mergeMessages($this->users->getMessages());
+                catch (\App\Models\Repositories\Exceptions\ValidationException $e)
+                {
+                    $form->mergeMessages($e->getErrors());
+                }
             }
         }
 
