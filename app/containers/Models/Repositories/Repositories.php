@@ -5,6 +5,12 @@ use App\Models\Repositories\Exceptions;
 
 class Repositories extends Injectable {
 
+    /**
+     * Repository caller
+     *
+     * @param  string $name
+     * @return \
+     */
     public function uses($name)
     {
         $className = "\\App\\Models\\Repositories\\Repository\\{$name}";

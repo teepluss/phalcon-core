@@ -11,6 +11,7 @@ use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Security;
 use App\Libraries\Extend\Db\Profiler as DbProfiler;
 
 /**
@@ -27,7 +28,7 @@ $di->set('dispatcher', function() {
     /**
      * Check if the user is allowed to access certain action using the SecurityPlugin
      */
-    //$eventsManager->attach('dispatch:beforeDispatch', new App\Plugins\Security());
+    $eventsManager->attach('dispatch:beforeDispatch', new App\Plugins\Security());
 
     /**
      * Handle exceptions and not-found exceptions using NotFoundPlugin
@@ -41,6 +42,9 @@ $di->set('dispatcher', function() {
 
 });
 
+/**
+ * Global events
+ */
 $di->set('events', function() {
     return require __DIR__ . '/events.php';
 });
@@ -123,6 +127,18 @@ $di->set('session', function () {
  */
 $di->set('router', function() {
     return require __DIR__.'/routes.php';
+});
+
+/**
+ * Security
+ */
+$di->set('security', function() {
+    $security = new Security();
+
+    //Set the password hashing factor to 12 rounds
+    $security->setWorkFactor(12);
+
+    return $security;
 });
 
 /**

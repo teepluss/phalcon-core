@@ -4,6 +4,7 @@ use Phalcon\Db\Column;
 use Sb\Framework\Mvc\Model\EagerLoading\Loader;
 use Sb\Framework\Mvc\Model\EagerLoading\QueryBuilder;
 use App\Forms\User\Create as UserCreateForm;
+use App\Models\Repositories\Exceptions;
 
 class UsersController extends BaseController {
 
@@ -16,9 +17,9 @@ class UsersController extends BaseController {
 
     public function indexAction()
     {
-        // echo $this->flashSession->output();
+        //echo $this->flashSession->output();
 
-        $ids = "1,7";
+        $ids = "1,3,7";
 
         $users = $this->users->with('Addresses', [
             "conditions" => "id in ($ids)",
@@ -37,29 +38,29 @@ class UsersController extends BaseController {
         $this->view->disable();
     }
 
-    public function eagerAction()
-    {
-        $users = Loader::fromResultset($this->users->find(), ['Addresses', 'Addresses.Location' => function(QueryBuilder $query) {
-            $query->where('id != ""');
-        }]);
+    // public function eagerAction()
+    // {
+    //     $users = Loader::fromResultset($this->users->find(), ['Addresses', 'Addresses.Location' => function(QueryBuilder $query) {
+    //         $query->where('id != ""');
+    //     }]);
 
-        foreach ($users as $user)
-        {
-            dump($user->toArray());
-            foreach ($user->addresses as $address)
-            {
-                dump($address->toArray());
-                if (isset($address->location))
-                {
-                    dump($address->location->toArray());
-                }
-            }
-        }
+    //     foreach ($users as $user)
+    //     {
+    //         dump($user->toArray());
+    //         foreach ($user->addresses as $address)
+    //         {
+    //             dump($address->toArray());
+    //             if (isset($address->location))
+    //             {
+    //                 dump($address->location->toArray());
+    //             }
+    //         }
+    //     }
 
-        dump($this->dbProfiler->output());
+    //     dump($this->dbProfiler->output());
 
-        $this->view->disable();
-    }
+    //     $this->view->disable();
+    // }
 
     public function createAction()
     {
@@ -77,9 +78,9 @@ class UsersController extends BaseController {
 
                     $this->flashSession->success('The new user has been created.');
 
-                    return $this->response->redirect(['for' => 'admin:users']);
+                    return $this->response->redirect('admin/users');
                 }
-                catch (\App\Models\Repositories\Exceptions\ValidationException $e)
+                catch (Exceptions\ValidationException $e)
                 {
                     $form->mergeMessages($e->getErrors());
                 }

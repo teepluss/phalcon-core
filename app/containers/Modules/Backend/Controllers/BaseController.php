@@ -4,6 +4,8 @@ use Phalcon\Mvc\Controller;
 
 abstract class BaseController extends Controller {
 
+    public static $permissions = [];
+
     public function initialize()
     {
         $this->view->setTemplateAfter('common');

@@ -22,6 +22,13 @@ class Users extends BaseModel {
         return 'users';
     }
 
+    public function setPassword($password)
+    {
+        $security = $this->getDI()->getSecurity();
+
+        $this->password = $security->hash($password);
+    }
+
     public function validation()
     {
         $this->validate(new Uniqueness(

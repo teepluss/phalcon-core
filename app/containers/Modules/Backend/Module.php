@@ -32,14 +32,7 @@ class Module implements ModuleDefinitionInterface {
         // Registering a dispatcher
         $dispatcher = $di->get('dispatcher');
         $di->set('dispatcher', function() use ($dispatcher) {
-
-            // $eventsManager = new EventsManager;
-            // $eventsManager->attach('dispatch:beforeException', function() {
-            //     //die('X');
-            // });
-
             $dispatcher->setDefaultNamespace('App\Modules\Backend\Controllers');
-            //$dispatcher->setEventsManager($eventsManager);
 
             return $dispatcher;
         });

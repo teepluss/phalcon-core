@@ -2,7 +2,7 @@
     "require": {
         "stibium/phalcon.eager-loading": "dev-master",
         "guzzlehttp/guzzle": ">=4.0",
-        "league/oauth2-client": "0.4.*"
+        "league/oauth2-client": "0.4.*",
     },
     "require-dev": {
         "symfony/var-dumper": "dev-master",
