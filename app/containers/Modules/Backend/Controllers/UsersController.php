@@ -92,4 +92,14 @@ class UsersController extends BaseController {
         $this->view->form = $form;
     }
 
+    public function editAction($id)
+    {
+
+    }
+
+    public function deleteAction($id)
+    {
+        ddd(['This time to destroy something.']);
+    }
+
 }
