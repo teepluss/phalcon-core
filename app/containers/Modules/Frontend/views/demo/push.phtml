@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Pusher Test</title>
+    <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+    <script>
+      // Enable pusher logging - don't include this in production
+      Pusher.log = function(message) {
+        if (window.console && window.console.log) {
+          window.console.log(message);
+        }
+      };
+
+      var pusher = new Pusher('2100e588a4227e100cb5');
+      var channel = pusher.subscribe('abc');
+
+      channel.bind('auction', function(data) {
+        if (data.box == 1) {
+          document.getElementById('box1').innerHTML = data.message;
+        }
+        else {
+          document.getElementById('box2').innerHTML = data.message;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+  </body>
+</html>

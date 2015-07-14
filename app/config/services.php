@@ -13,6 +13,7 @@ use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
 use Phalcon\Security;
 use App\Libraries\Extend\Db\Profiler as DbProfiler;
+use Phalcon\Crypt;
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -171,8 +172,8 @@ $di->set('flashSession', function() {
  * Translation
  */
 $di->set('translate', function() use ($di, $config) {
-
     $language = $di->get('request')->getBestLanguage();
+    $language = "th";
 
     $messagesDir = $config->application->messagesDir;
 
@@ -188,9 +189,14 @@ $di->set('translate', function() use ($di, $config) {
     }
 
     // Return a translation object
-    return new \Phalcon\Translate\Adapter\NativeArray(array(
-       "content" => $content
-    ));
+    // return new \Phalcon\Translate\Adapter\NativeArray([
+    //    "content" => $content
+    // ]);
+
+    return new \App\Libraries\Extend\Translate\Adapter\NativeArray([
+        "content" => $content
+    ]);
+
 }, true);
 
 /**
@@ -213,3 +219,34 @@ $di->set('repositories', function() use ($di) {
 
     return $repositories;
 }, true);
+
+/**
+ * Cookie
+ */
+$di->set('cookies', function() {
+    $cookies = new Phalcon\Http\Response\Cookies();
+    $cookies->useEncryption(true);
+    return $cookies;
+});
+
+/**
+ * Encryption
+ */
+$di->set('crypt', function() {
+    $crypt = new Crypt();
+    $crypt->setMode(MCRYPT_MODE_CFB);
+    $crypt->setKey('#1dj8$=dp?.ak/s#/j1Vw45$'); // Use your own key!
+    return $crypt;
+});
+
+/**
+ * Oauth Server
+ */
+$di->set('oauth', function () {
+    $oauth = new App\Plugins\Oauth2\Server\StandaloneWrapper();
+    $oauth->initAuthorizationServer();
+    $oauth->initResourceServer();
+    $oauth->enableAllGrants();
+
+    return $oauth;
+});

@@ -13,7 +13,7 @@ class User extends BaseRepository implements RepositoryInterface {
 
     public function findById($id)
     {
-
+        return $this->model->findFirst(['id' => $id]);
     }
 
     public function findAll()

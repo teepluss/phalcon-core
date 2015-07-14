@@ -2,36 +2,29 @@
 
 use App\Forms\BaseForm;
 use Phalcon\Forms\Element\Text;
+use Phalcon\Forms\Element\Check;
 use Phalcon\Forms\Element\Submit;
 use Phalcon\Forms\Element\Password;
 use Phalcon\Validation\Validator\Email;
+use Phalcon\Validation\Validator\Identical;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\StringLength;
 use Phalcon\Validation\Validator\Confirmation;
 
-class Create extends BaseForm {
-
+class Create extends BaseForm
+{
     public function initialize($entity = null, $options = null)
     {
-        $firstname = new Text('firstname');
-        $firstname->setLabel('First Name');
+        // Name
+        $firstname = new Text('name', ['class' => 'form-control']);
+        $firstname->setLabel('Name');
         $firstname->setFilters(array('striptags', 'string'));
         $firstname->addValidators(array(
             new PresenceOf(array(
-                'message' => 'First Name is required'
+                'message' => 'Name is required'
             ))
         ));
         $this->add($firstname);
-
-        $lastname = new Text('lastname');
-        $lastname->setLabel('Last Name');
-        $lastname->setFilters(array('striptags', 'string'));
-        $lastname->addValidators(array(
-            new PresenceOf(array(
-                'message' => 'Last Name is required'
-            ))
-        ));
-        $this->add($lastname);
 
         // Email
         $email = new Text('email');
@@ -74,6 +67,17 @@ class Create extends BaseForm {
             ))
         ));
         $this->add($repeatPassword);
+
+        $agreement = new Check('agree', ['value' => 'yes']);
+        $agreement->setLabel('Accept terms and conditions');
+        $agreement->addValidators([
+            new Identical([
+                'value'   => 'yes',
+                'message' => 'Terms and conditions must be accepted'
+            ])
+        ]);
+
+        $this->add($agreement);
 
         $submit = new Submit('submit');
 

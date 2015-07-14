@@ -19,6 +19,6 @@ return new \Phalcon\Config(array(
         'helpersDir'  => $baseUri . '/app/helpers/',
         'messagesDir' => $baseUri . '/app/messages/',
         'baseUri'     => $baseUri . '/',
-        'baseUrl'     => '/'
+        'baseUrl'     => 'http://core.phalcon.app/'
     ),
 ));

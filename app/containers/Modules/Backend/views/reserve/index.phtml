@@ -1,0 +1,25 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Reservation</h1>
+
+    <?php if (count($seats)) : ?>
+    <table class="table-bordered" style="width:100%">
+        <?php for ($r=1; $r <= $maxRow; $r++) : ?>
+        <tr>
+            <?php for ($c=1; $c <= $maxCell; $c++) : ?>
+            <?php if (isset($seats[$r][$c])) : ?>
+            <td style="padding:5px">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> <?php echo $seats[$r][$c]['seat'] ?>
+                    </label>
+                </div>
+            </td>
+            <?php else : ?>
+            <td>&nbsp;</td>
+            <?php endif ?>
+            <?php endfor ?>
+        </tr>
+        <?php endfor ?>
+    </table>
+    <?php endif ?>
+</div>

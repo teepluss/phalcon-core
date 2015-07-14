@@ -3,14 +3,6 @@
 $loader = new \Phalcon\Loader();
 
 /**
- * We're a registering a set of directories taken from the configuration file
- */
-// $loader->registerDirs([
-//     $config->application->controllersDir,
-//     $config->application->modelsDir
-// ]);
-
-/**
  * Composer autoload
  * Ref: http://forum.phalconphp.com/discussion/2016/composer-and-autoloading
  * PSR4 method by EThaiZone
@@ -42,12 +34,11 @@ $loader->registerNamespaces([
     'App' => $config->application->appDir.'containers/'
 ] + $composerAutoloadPsr4 + $composerAutoloadNamespace);
 
-
 // include composer autoload classmap
 $classMap = require $config->application->vendorDir . 'composer/autoload_classmap.php';
 $loader->registerClasses($classMap);
 
-// include composer autoload files
+// // include composer autoload files
 $files = require $config->application->vendorDir . 'composer/autoload_files.php';
 foreach($files as $file)
 {

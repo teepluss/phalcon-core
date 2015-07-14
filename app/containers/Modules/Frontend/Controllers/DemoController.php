@@ -1,12 +1,22 @@
-<?php namespace App\Modules\Frontend\Controllers;
+<?php
 
+namespace App\Modules\Frontend\Controllers;
+
+use Phalcon\Mvc\View;
 use GuzzleHttp\Client;
+use Phalcon\Dispatcher;
+use Phalcon\Mvc\Dispatcher\Exception;
 
-class DemoController extends BaseController {
-
+class DemoController extends BaseController
+{
+    /**
+     * Demo Index
+     *
+     * @return void
+     */
     public function indexAction()
     {
-        die('Diet Pepsi');
+        $this->tag->appendTitle('Demo Index');
     }
 
     public function guzzleAction()
@@ -32,4 +42,32 @@ class DemoController extends BaseController {
         return $response->send();
     }
 
+    public function notfoundAction()
+    {
+        throw new Exception('Not found', Dispatcher::EXCEPTION_HANDLER_NOT_FOUND);
+    }
+
+    public function pushAction()
+    {
+        $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
+    }
+
+    /**
+     * Js Example
+     *
+     * eg. watchify public/assets/src/script -t babelify --outfile public/assets/js/bundle.js -d
+     *
+     * @return string
+     */
+    public function jsAction()
+    {
+        $this->tag->appendTitle('JavaScript ES6');
+
+        $this->assets->collection('footer')->addJs('assets/js/bundle.js');
+    }
+
+    public function shareAction()
+    {
+        $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
+    }
 }

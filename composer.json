@@ -1,13 +1,21 @@
 {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "workbench/teepluss/phalcon-console"
+        }
+    ],
     "require": {
         "stibium/phalcon.eager-loading": "dev-master",
         "guzzlehttp/guzzle": ">=4.0",
         "league/oauth2-client": "0.4.*",
+        "league/oauth2-server": "4.1.*"
     },
     "require-dev": {
         "symfony/var-dumper": "dev-master",
         "fabfuel/prophiler": "~1.0",
-        "raveren/kint": "dev-master"
+        "raveren/kint": "~1.0",
+        "vanchelo/phalcon-console": "dev-master"
     },
     "config": {
         "preferred-install": "dist"

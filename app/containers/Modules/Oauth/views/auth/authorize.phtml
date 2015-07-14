@@ -1,0 +1,27 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Authorize</h1>
+
+    <form method="post">
+        <fieldset>
+
+            <?php foreach ($params as $key => $val) : ?>
+            <input type="hidden" name="<?php echo $key ?>" value="<?php echo $val ?>">
+            <?php endforeach ?>
+
+            <div class="control-group">
+                <label class="control-label">Approve?</label>
+                <div class="controls">
+                    <input type="text" name="approve" class="form-control" placeholder="approve" required>
+                    <p class="help-block">To approve type "approve" in the box.</p>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" class="btn btn-primary">
+            </div>
+
+        </fieldset>
+    </form>
+
+
+</div>

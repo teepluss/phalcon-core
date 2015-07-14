@@ -27,19 +27,21 @@ class NotFound extends Plugin {
             switch ($exception->getCode()) {
                 case Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
                 case Dispatcher::EXCEPTION_ACTION_NOT_FOUND:
-                    $dispatcher->forward(array(
+                    $dispatcher->forward([
+                        'namespace'  => 'App\Modules\Frontend\Controllers',
                         'controller' => 'errors',
                         'action'     => 'show404'
-                    ));
+                    ]);
 
                     return false;
             }
         }
 
-        // $dispatcher->forward(array(
+        // $dispatcher->forward([
+        //     'namespace'  => 'App\Modules\Frontend\Controllers',
         //     'controller' => 'errors',
         //     'action'     => 'show500'
-        // ));
+        // ]);
 
         throw $exception;
     }

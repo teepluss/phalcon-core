@@ -5,20 +5,11 @@
         <fieldset>
 
             <div class="control-group">
-                <?php echo $form->label('firstname', ['class' => 'control-label']) ?>
+                <?php echo $form->label('name', ['class' => 'control-label']) ?>
                 <div class="controls">
-                    <?php echo $form->render('firstname', ['class' => 'form-control']) ?>
+                    <?php echo $form->render('name') ?>
                     <p class="help-block">(required)</p>
-                    <?php echo $form->errorFirst('firstname') ?>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <?php echo $form->label('lastname', ['class' => 'control-label']) ?>
-                <div class="controls">
-                    <?php echo $form->render('lastname', ['class' => 'form-control']) ?>
-                    <p class="help-block">(required)</p>
-                    <?php echo $form->errorFirst('lastname') ?>
+                    <?php echo $form->errorFirst('name') ?>
                 </div>
             </div>
 
@@ -41,12 +32,19 @@
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="repeatPassword">Repeat Password</label>
+                <?php echo $form->label('repeatPassword', ['class' => 'control-label']) ?>
                 <div class="controls">
                     <?php echo $form->render('repeatPassword', ['class' => 'form-control']) ?>
                     <p class="help-block">(match the password)</p>
                     <?php echo $form->errorFirst('repeatPassword') ?>
                 </div>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <?php echo $form->render('agree') ?> Agree our policy
+                </label>
+                <?php echo $form->errorFirst('agree') ?>
             </div>
 
             <div class="form-actions">
