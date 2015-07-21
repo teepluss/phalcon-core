@@ -2,7 +2,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "workbench/teepluss/phalcon-console"
+            "url": "https://github.com/teepluss/phalcon-console"
         }
     ],
     "require": {
