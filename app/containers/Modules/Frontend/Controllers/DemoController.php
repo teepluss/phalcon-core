@@ -30,8 +30,8 @@ class DemoController extends BaseController
             ],
             'form_params' => [
                 'grant_type' => 'password',
-                'username' => '1909900116160',
-                'password' => 'password'
+                'username'   => '1909900116160',
+                'password'   => 'password'
             ]
         ]);
 

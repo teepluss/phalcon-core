@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'db_admanrounded_xregular';
+    src: url('../fonts/db_admanrounded_x_v3.2-webfont.eot');
+    src: url('../fonts/db_admanrounded_x_v3.2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/db_admanrounded_x_v3.2-webfont.woff2') format('woff2'),
+         url('../fonts/db_admanrounded_x_v3.2-webfont.woff') format('woff'),
+         url('../fonts/db_admanrounded_x_v3.2-webfont.ttf') format('truetype'),
+         url('../fonts/db_admanrounded_x_v3.2-webfont.svg#db_admanrounded_xregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'db_admanrounded_xboldit';
+    src: url('../fonts/db_admanrounded_x_bd_it_v3.2-webfont.eot');
+    src: url('../fonts/db_admanrounded_x_bd_it_v3.2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/db_admanrounded_x_bd_it_v3.2-webfont.woff2') format('woff2'),
+         url('../fonts/db_admanrounded_x_bd_it_v3.2-webfont.woff') format('woff'),
+         url('../fonts/db_admanrounded_x_bd_it_v3.2-webfont.ttf') format('truetype'),
+         url('../fonts/db_admanrounded_x_bd_it_v3.2-webfont.svg#db_admanrounded_xboldit') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'db_admanrounded_xbold';
+    src: url('../fonts/db_admanrounded_x_bd_v3.2-webfont.eot');
+    src: url('../fonts/db_admanrounded_x_bd_v3.2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/db_admanrounded_x_bd_v3.2-webfont.woff2') format('woff2'),
+         url('../fonts/db_admanrounded_x_bd_v3.2-webfont.woff') format('woff'),
+         url('../fonts/db_admanrounded_x_bd_v3.2-webfont.ttf') format('truetype'),
+         url('../fonts/db_admanrounded_x_bd_v3.2-webfont.svg#db_admanrounded_xbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'db_admanrounded_xitalic';
+    src: url('../fonts/db_admanrounded_x_it_v3.2-webfont.eot');
+    src: url('../fonts/db_admanrounded_x_it_v3.2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/db_admanrounded_x_it_v3.2-webfont.woff2') format('woff2'),
+         url('../fonts/db_admanrounded_x_it_v3.2-webfont.woff') format('woff'),
+         url('../fonts/db_admanrounded_x_it_v3.2-webfont.ttf') format('truetype'),
+         url('../fonts/db_admanrounded_x_it_v3.2-webfont.svg#db_admanrounded_xitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'db_admanrounded_xlightit';
+    src: url('../fonts/db_admanrounded_x_li_it_v3.2-webfont.eot');
+    src: url('../fonts/db_admanrounded_x_li_it_v3.2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/db_admanrounded_x_li_it_v3.2-webfont.woff2') format('woff2'),
+         url('../fonts/db_admanrounded_x_li_it_v3.2-webfont.woff') format('woff'),
+         url('../fonts/db_admanrounded_x_li_it_v3.2-webfont.ttf') format('truetype'),
+         url('../fonts/db_admanrounded_x_li_it_v3.2-webfont.svg#db_admanrounded_xlightit') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'db_admanrounded_xlight';
+    src: url('../fonts/db_admanrounded_x_li_v3.2-webfont.eot');
+    src: url('../fonts/db_admanrounded_x_li_v3.2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/db_admanrounded_x_li_v3.2-webfont.woff2') format('woff2'),
+         url('../fonts/db_admanrounded_x_li_v3.2-webfont.woff') format('woff'),
+         url('../fonts/db_admanrounded_x_li_v3.2-webfont.ttf') format('truetype'),
+         url('../fonts/db_admanrounded_x_li_v3.2-webfont.svg#db_admanrounded_xlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

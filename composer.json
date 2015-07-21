@@ -15,7 +15,9 @@
         "symfony/var-dumper": "dev-master",
         "fabfuel/prophiler": "~1.0",
         "raveren/kint": "~1.0",
-        "vanchelo/phalcon-console": "dev-master"
+        "vanchelo/phalcon-console": "dev-master",
+        "phpunit/phpunit": "~4.5",
+        "phalcon/incubator": "2.0.*"
     },
     "config": {
         "preferred-install": "dist"

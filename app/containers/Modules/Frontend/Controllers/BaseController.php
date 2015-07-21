@@ -19,7 +19,7 @@ abstract class BaseController extends Controller {
         $this->assets
             ->addCss('assets/vendor/material-design-lite/material.min.css')
             ->addCss('//fonts.googleapis.com/icon?family=Material+Icons', false)
-            ->addCss('assets/font/admanrounded/stylesheet.css')
+            ->addCss('assets/css/font-custom.css')
             ->addCss('assets/css/frontend/styles.css');
 
         $this->assets
