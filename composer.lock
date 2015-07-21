@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "01d9cc5c6d4c7e04cb85dac4f1e845dc",
+    "hash": "7b29f81f3a1d87b4db085012b3d3c696",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -1906,8 +1906,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "workbench/teepluss/phalcon-console",
+                "url": "https://github.com/teepluss/phalcon-console.git",
                 "reference": "f9d6bdbac36c277449a557091944ec4b1f744555"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teepluss/phalcon-console/zipball/f9d6bdbac36c277449a557091944ec4b1f744555",
+                "reference": "f9d6bdbac36c277449a557091944ec4b1f744555",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1934,6 +1940,9 @@
                 "development",
                 "phalcon"
             ],
+            "support": {
+                "source": "https://github.com/teepluss/phalcon-console/tree/master"
+            },
             "time": "2015-07-16 15:52:44"
         }
     ],
